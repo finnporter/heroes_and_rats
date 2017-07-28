@@ -5,4 +5,6 @@ var Task = function(difficultyLevel, priority, reward) {
   this.priority = priority;
   this.reward = reward;
   this.complete = false;
-}
+};
+
+module.exports = Task;
