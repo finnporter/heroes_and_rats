@@ -21,4 +21,8 @@ describe("Hero", function() {
     assert.strictEqual(hero.favouriteFood, "Shepherds Pie");
   });
 
+  it("should have an empty array of tasks", function() {
+    assert.strictEqual(hero.tasksToComplete.length, 0);
+  });
+
 });
