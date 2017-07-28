@@ -37,6 +37,10 @@ describe("Hero", function() {
     assert.strictEqual(hero.tasksToComplete.length, 0);
   });
 
+  it("should say something", function() {
+    assert.strictEqual(hero.speak("I am Kerlin Tapatalk"), "I am Kerlin Tapatalk")
+  });
+
   it("should replenish by eating food_regular food", function() {
     hero.health = 95;
     hero.eat(food2);
