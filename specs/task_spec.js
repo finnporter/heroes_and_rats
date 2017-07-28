@@ -21,5 +21,13 @@ describe("Task", function() {
     assert.strictEqual(task1.reward, "Shepherds Pie");
   });
 
+  it("should be NOT complete by default", function() {
+    assert.strictEqual(task1.complete, false);
+  });
+
+  it("can be set to complete", function() {
+    assert.strictEqual(task1.completeTask(), true);
+  });
+
 
 });

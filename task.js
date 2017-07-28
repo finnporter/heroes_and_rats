@@ -7,4 +7,8 @@ var Task = function(difficultyLevel, priority, reward) {
   this.complete = false;
 };
 
+Task.prototype.completeTask = function() {
+  return this.complete = true;
+};
+
 module.exports = Task;
