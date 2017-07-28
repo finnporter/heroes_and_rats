@@ -13,4 +13,8 @@ describe("Hero", function() {
     assert.strictEqual(hero.name, "Kerlin Tapatalk");
   });
 
+  it("should start with full health", function() {
+    assert.strictEqual(hero.health, 100);
+  })
+
 });
