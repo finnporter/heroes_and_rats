@@ -9,7 +9,11 @@ var Hero = function(name, favouriteFood ) {
 };
 
 Hero.prototype.eat = function(food) {
-  return this.health += food.replenishmentValue;
+  if (this.health - food.replenishmentValue <= food.replenishmentValue) {
+    return this.health += food.replenishmentValue;
+  } else {
+    return this.health = 100;
+  }
 };
 
 module.exports = Hero;

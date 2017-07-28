@@ -35,7 +35,7 @@ describe("Hero", function() {
 
   it("should replenish by eating food", function() {
     hero.eat(food1)
-    assert.strictEqual(hero.health, 120);
+    assert.strictEqual(hero.health, 100);
   });
 
 });
