@@ -8,4 +8,8 @@ var Hero = function(name, favouriteFood ) {
   this.tasksToComplete = [];
 };
 
+Hero.prototype.eat = function(food) {
+  return this.health += food.replenishmentValue;
+};
+
 module.exports = Hero;

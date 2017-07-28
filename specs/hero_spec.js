@@ -1,12 +1,16 @@
 var assert = require('assert');
 var Hero = require('../hero');
+var Task = require('../task');
+var Food = require('../food');
 
 describe("Hero", function() {
 
-  var hero
+  var hero;
+  var food1;
 
   beforeEach(function() {
-    hero = new Hero("Kerlin Tapatalk", "Shepherds Pie")
+    hero = new Hero("Kerlin Tapatalk", "Shepherds Pie");
+    food1 = new Food("Shepherds Pie", 20);
   });
 
   it("should have name", function() {
@@ -27,6 +31,11 @@ describe("Hero", function() {
 
   it("should have an empty array of tasks", function() {
     assert.strictEqual(hero.tasksToComplete.length, 0);
+  });
+
+  it("should replenish by eating food", function() {
+    hero.eat(food1)
+    assert.strictEqual(hero.health, 120);
   });
 
 });
