@@ -13,5 +13,7 @@ describe("Food", function() {
     assert.strictEqual(food1.name, "Shepherds Pie");
   });
 
-  
+  it("should have a replenishment value", function() {
+    assert.strictEqual(food1.replenishmentValue, 20);
+  });
 });
