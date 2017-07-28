@@ -17,5 +17,9 @@ describe("Task", function() {
     assert.strictEqual(task1.priority, 2);
   });
 
+  it("should have reward", function() {
+    assert.strictEqual(task1.reward, "Shepherds Pie");
+  });
+
 
 });
