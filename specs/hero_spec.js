@@ -7,10 +7,14 @@ describe("Hero", function() {
 
   var hero;
   var food1;
+  var food2;
+  var food3;
 
   beforeEach(function() {
     hero = new Hero("Kerlin Tapatalk", "Shepherds Pie");
     food1 = new Food("Shepherds Pie", 20);
+    food2 = new Food("Loaf of Bread", 3);
+    food3 = new Food("Chicken Noodle Soup", 15);
   });
 
   it("should have name", function() {
@@ -33,8 +37,20 @@ describe("Hero", function() {
     assert.strictEqual(hero.tasksToComplete.length, 0);
   });
 
-  it("should replenish by eating food", function() {
-    hero.eat(food1)
+  it("should replenish by eating food_regular food", function() {
+    hero.health = 95;
+    hero.eat(food2);
+    assert.strictEqual(hero.health, 98);
+  });
+
+  it("should replenish by eating food_favourite food", function() {
+    hero.health = 70;
+    hero.eat(food1);
+    assert.strictEqual(hero.health, 100);
+  });
+
+  it("should replenish but not more than 100", function() {
+    hero.eat(food3);
     assert.strictEqual(hero.health, 100);
   });
 
