@@ -12,6 +12,10 @@ Hero.prototype.speak = function(phrase) {
   return phrase;
 };
 
+Hero.prototype.addTask = function(task) {
+  this.tasksToComplete.push(task);
+};
+
 Hero.prototype.eat = function(food) {
   var actualReplenishmentValue = food.replenishmentValue * (food.name === this.favouriteFood ? 1.5 : 1);
   var newHealth = this.health += actualReplenishmentValue;

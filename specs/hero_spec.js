@@ -9,12 +9,14 @@ describe("Hero", function() {
   var food1;
   var food2;
   var food3;
+  var task1;
 
   beforeEach(function() {
     hero = new Hero("Kerlin Tapatalk", "Shepherds Pie");
     food1 = new Food("Shepherds Pie", 20);
     food2 = new Food("Loaf of Bread", 3);
     food3 = new Food("Chicken Noodle Soup", 15);
+    task1 = new Task(1, 2, "Shepherds Pie");
   });
 
   it("should have name", function() {
@@ -40,6 +42,11 @@ describe("Hero", function() {
   it("should say something", function() {
     assert.strictEqual(hero.speak("I am Kerlin Tapatalk"), "I am Kerlin Tapatalk")
   });
+
+  it("should add tasks to collection", function() {
+    hero.addTask(task1);
+    assert.strictEqual(hero.tasksToComplete.length, 1);
+  })
 
   it("should replenish by eating food_regular food", function() {
     hero.health = 95;
