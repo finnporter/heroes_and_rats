@@ -1,5 +1,5 @@
 var assert = require('assert');
-var Food = require('../Food');
+var Food = require('../food');
 
 describe("Food", function() {
 
@@ -17,5 +17,9 @@ describe("Food", function() {
     assert.strictEqual(food1.replenishmentValue, 20);
   });
 
-  
+  it("should not be poisoned by default", function() {
+    assert.strictEqual(food1.statusPoisoned, false);
+  })
+
+
 });

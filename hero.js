@@ -19,7 +19,7 @@ Hero.prototype.addTask = function(task) {
 
 Hero.prototype.completeTask = function(task) {
   return _.remove(this.tasksToComplete, function(task) {
-    return (task.status == "active");
+    return (task.status === "active");
   }.bind(this))
 };
 
