@@ -16,8 +16,8 @@ describe("Rat", function() {
     assert.strictEqual(rat1.poison, true);
   });
 
-  xit("should poison food", function() {
-    rat1.poisonFood(food1);
-    assert.strictEqual()
+  it("should poison food", function() {
+    rat1.eatFood(food1);
+    assert.strictEqual(food1.statusPoisoned, true);
   })
 })
