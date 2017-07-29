@@ -6,6 +6,7 @@ var Hero = function(name, favouriteFood ) {
   this.money = 0;
   this.favouriteFood = favouriteFood;
   this.tasksToComplete = [];
+  this.completedTasks = [];
 };
 
 Hero.prototype.speak = function(phrase) {
@@ -14,6 +15,12 @@ Hero.prototype.speak = function(phrase) {
 
 Hero.prototype.addTask = function(task) {
   this.tasksToComplete.push(task);
+};
+
+Hero.prototype.completeTask = function(task) {
+  return _.remove(this.tasksToComplete, function(task) {
+    return (task.status == "active");
+  }.bind(this))
 };
 
 Hero.prototype.eat = function(food) {

@@ -22,11 +22,11 @@ describe("Task", function() {
   });
 
   it("should be NOT complete by default", function() {
-    assert.strictEqual(task1.complete, false);
+    assert.strictEqual(task1.status, "active");
   });
 
   it("can be set to complete", function() {
-    assert.strictEqual(task1.completeTask(), true);
+    assert.strictEqual(task1.completeTask(), "complete");
   });
 
 

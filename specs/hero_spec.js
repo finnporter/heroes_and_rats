@@ -10,6 +10,7 @@ describe("Hero", function() {
   var food2;
   var food3;
   var task1;
+  var task2
 
   beforeEach(function() {
     hero = new Hero("Kerlin Tapatalk", "Shepherds Pie");
@@ -17,6 +18,7 @@ describe("Hero", function() {
     food2 = new Food("Loaf of Bread", 3);
     food3 = new Food("Chicken Noodle Soup", 15);
     task1 = new Task(1, 2, "Shepherds Pie");
+    task2 = new Task(2, 1, "Loaf of Bread");
   });
 
   it("should have name", function() {
@@ -46,7 +48,14 @@ describe("Hero", function() {
   it("should add tasks to collection", function() {
     hero.addTask(task1);
     assert.strictEqual(hero.tasksToComplete.length, 1);
-  })
+  });
+
+  it("should remove task after completion", function() {
+    hero.addTask(task1);
+    hero.addTask(task2);
+    task1.completeTask(task1);
+    assert.strictEqual(hero.completedTasks.length, 1);
+  });
 
   it("should replenish by eating food_regular food", function() {
     hero.health = 95;
