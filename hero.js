@@ -6,6 +6,7 @@ var Hero = function(name, favouriteFood ) {
   this.money = 0;
   this.favouriteFood = favouriteFood;
   this.tasksToComplete = [];
+  this.bag = [];
 };
 
 Hero.prototype.speak = function(phrase) {

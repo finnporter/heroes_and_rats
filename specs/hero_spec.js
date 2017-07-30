@@ -44,6 +44,10 @@ describe("Hero", function() {
     assert.strictEqual(hero.tasksToComplete.length, 0);
   });
 
+  it("should have an empty bag", function() {
+    assert.strictEqual(hero.bag.length, 0);
+  })
+
   it("should say something", function() {
     assert.strictEqual(hero.speak("I am Kerlin Tapatalk"), "I am Kerlin Tapatalk")
   });
