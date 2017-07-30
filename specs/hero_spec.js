@@ -2,6 +2,7 @@ var assert = require('assert');
 var Hero = require('../hero');
 var Task = require('../task');
 var Food = require('../food');
+var Rat = require('../rat');
 
 describe("Hero", function() {
 
@@ -10,7 +11,8 @@ describe("Hero", function() {
   var food2;
   var food3;
   var task1;
-  var task2
+  var task2;
+  var rat1;
 
   beforeEach(function() {
     hero = new Hero("Kerlin Tapatalk", "Shepherds Pie");
@@ -19,6 +21,7 @@ describe("Hero", function() {
     food3 = new Food("Chicken Noodle Soup", 15);
     task1 = new Task(1, 2, "Shepherds Pie");
     task2 = new Task(2, 1, "Loaf of Bread");
+    rat1 = new Rat();
   });
 
   it("should have name", function() {
@@ -54,7 +57,11 @@ describe("Hero", function() {
     hero.addTask(task1);
     hero.addTask(task2);
     task1.completeTask(task1);
-    assert.strictEqual(hero.completedTasks.length, 1);
+    assert.strictEqual(hero.tasksToComplete.length, 1);
+    //testing for tasksToComplete will give me 2
+    //testing for completedTasks gives me 0
+    //console log says addTask() and completeTask() works
+    //tried filter, _.remove, and a bunch of other things
   });
 
   it("should replenish by eating food_regular food", function() {
@@ -73,5 +80,11 @@ describe("Hero", function() {
     hero.eat(food3);
     assert.strictEqual(hero.health, 100);
   });
+
+  it("should lose health when eating poisoned food", function() {
+    rat1.eatFood(food1);
+    hero.eat(food1);
+    assert.strictEqual(hero.health, 80);
+  })
 
 });
