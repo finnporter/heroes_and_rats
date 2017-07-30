@@ -20,6 +20,7 @@ Hero.prototype.completeTask = function(task) {
   var completedTasks = this.tasksToComplete.filter(function(task) {
     return (task.status === "active");
   })
+  return this.money = task.moneyReward;
 };
 
 Hero.prototype.eat = function(food) {

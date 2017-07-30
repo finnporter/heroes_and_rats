@@ -19,8 +19,8 @@ describe("Hero", function() {
     food1 = new Food("Shepherds Pie", 20);
     food2 = new Food("Loaf of Bread", 3);
     food3 = new Food("Chicken Noodle Soup", 15);
-    task1 = new Task(1, 2, "Shepherds Pie");
-    task2 = new Task(2, 1, "Loaf of Bread");
+    task1 = new Task(1, 2, "Shepherds Pie", 10);
+    task2 = new Task(2, 1, "Loaf of Bread", 4);
     rat1 = new Rat();
   });
 
@@ -64,6 +64,11 @@ describe("Hero", function() {
     //tried filter, _.remove, and a bunch of other things
   });
 
+  it("should get money reward from completed task", function() {
+    hero.completeTask(task1);
+    assert.strictEqual(hero.money, 10);
+  })
+
   it("should replenish by eating food_regular food", function() {
     hero.health = 95;
     hero.eat(food2);
@@ -85,8 +90,11 @@ describe("Hero", function() {
     rat1.eatFood(food1);
     hero.eat(food1);
     assert.strictEqual(hero.health, 80);
+    //tried a very long if statement, nothing
+    //tried a switch, nothing
+    //went back to original ternary and tried to nest that, nothing.
   });
 
-  
+
 
 });
