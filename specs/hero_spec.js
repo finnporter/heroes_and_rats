@@ -81,10 +81,12 @@ describe("Hero", function() {
     assert.strictEqual(hero.health, 100);
   });
 
-  it("should lose health when eating poisoned food", function() {
+  xit("should lose health when eating poisoned food", function() {
     rat1.eatFood(food1);
     hero.eat(food1);
     assert.strictEqual(hero.health, 80);
-  })
+  });
+
+  
 
 });
