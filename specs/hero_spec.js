@@ -57,20 +57,21 @@ describe("Hero", function() {
     assert.strictEqual(hero.tasksToComplete.length, 1);
   });
 
-  xit("should remove task after completion", function() {
+  it("should remove task after completion", function() {
     hero.addTask(task1);
     hero.addTask(task2);
-    task1.completeTask(task1);
+    hero.completeTask(task1);
     assert.strictEqual(hero.tasksToComplete.length, 1);
-    //testing for tasksToComplete will give me 2
-    //testing for completedTasks gives me 0
-    //console log says addTask() and completeTask() works
-    //tried filter, _.remove, and a bunch of other things
   });
 
   it("should get money reward from completed task", function() {
     hero.completeTask(task1);
     assert.strictEqual(hero.money, 10);
+  });
+
+  it("should get item reward from completed task", function() {
+    hero.completeTask(task1);
+    assert.strictEqual(hero.bag.length, 1);
   })
 
   it("should replenish by eating food_regular food", function() {
@@ -90,13 +91,10 @@ describe("Hero", function() {
     assert.strictEqual(hero.health, 100);
   });
 
-  xit("should lose health when eating poisoned food", function() {
-    rat1.eatFood(food1);
-    hero.eat(food1);
-    assert.strictEqual(hero.health, 80);
-    //tried a very long if statement, nothing
-    //tried a switch, nothing
-    //went back to original ternary and tried to nest that, nothing.
+  it("should lose health when eating poisoned food", function() {
+    rat1.eatFood(food2);
+    hero.eat(food2);
+    assert.strictEqual(hero.health, 20);
   });
 
 

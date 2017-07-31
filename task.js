@@ -8,7 +8,7 @@ var Task = function(difficultyLevel, priority, itemReward, moneyReward) {
   this.status = "active";
 };
 
-Task.prototype.completeTask = function() {
+Task.prototype.completesTask = function() {
   return this.status = "complete";
 };
 

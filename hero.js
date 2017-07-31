@@ -7,6 +7,12 @@ var Hero = function(name, favouriteFood ) {
   this.favouriteFood = favouriteFood;
   this.tasksToComplete = [];
   this.bag = [];
+  this.getItemReward = function(task) {
+    this.bag.push(task.itemReward);
+  }
+  this.getMoneyReward = function(task) {
+    this.money += task.moneyReward;
+  }
 };
 
 Hero.prototype.speak = function(phrase) {
@@ -18,18 +24,22 @@ Hero.prototype.addTask = function(task) {
 };
 
 Hero.prototype.completeTask = function(task) {
-  var completedTasks = this.tasksToComplete.filter(function(task) {
+  task.completesTask();
+  this.getMoneyReward(task);
+  this.getItemReward(task);
+  var completedTasks = _.remove(this.tasksToComplete,function(task) {
     return (task.status === "active");
   })
-  return this.money = task.moneyReward;
 };
+
+
 
 Hero.prototype.eat = function(food) {
   var actualReplenishmentValue;
   var newHealth;
-  actualReplenishmentValue =
-    (food.name === this.favouriteFood) ? food.replenishmentValue * 1.5 :
-      (food.statusPoisoned === false) ? food.replenishmentValue * 1 : this.health * 0.8;
+  var actualReplenishmentValue =
+  (food.name === this.favouriteFood) ? food.replenishmentValue * 1.5 :
+  (food.statusPoisoned === false) ? food.replenishmentValue * 1 : -(this.health * 0.8);
   newHealth = this.health += actualReplenishmentValue;
   return (newHealth > 100 ? this.health = 100 : this.health = newHealth);
 };

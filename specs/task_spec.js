@@ -30,7 +30,7 @@ describe("Task", function() {
   });
 
   it("can be set to complete", function() {
-    assert.strictEqual(task1.completeTask(), "complete");
+    assert.strictEqual(task1.completesTask(), "complete");
   });
 
 
